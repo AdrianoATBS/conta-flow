@@ -6,7 +6,7 @@ const inter = Inter({
   variable: "--font-inter",
   weight: ["400", "500", "600", "700"],
 });
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: {children: React.ReactNode }) {
   return (
     <html
       lang="pt-BR"
