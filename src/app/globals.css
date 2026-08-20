@@ -6,9 +6,13 @@
   --color-secundaria: #948C75; /*  elementos secundário*/
   --color-terciaria: #D5DED9; /* fundos leves*/
 
+  --color-botao-primario: #4E656B; /* Botão principal */
+  --color-botao-secundario: #F1ECE1; /* Botão secundário */
+  --color-botao-terciario: #292113; /* Botão terciário */
+
   /* Neutras */
 
-  --color-fundo: ##D9CEB2; /*fundo geral*/
+  --color-fundo: #D9CEB2; /*fundo geral*/
   --color-superficie: #ffffff; /*cards*/
 
      /* Texto */
@@ -18,7 +22,7 @@
      --color-texto-atenunado: #64748b; /**/
 
    /* Borda */
-  --color-bordar: #e2e8f0; /**/ 
+  --color-bordar: #D9CEB2; /**/ 
 }
 
 body {
