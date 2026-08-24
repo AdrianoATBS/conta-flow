@@ -12,17 +12,17 @@
 
   /* Neutras */
 
+  /* Fundo */
   --color-fundo: #D9CEB2; /*fundo geral*/
   --color-superficie: #ffffff; /*cards*/
 
-     /* Texto */
-     
-     /* Fundo */
-     --color-texto: #0f172a; /**/
-     --color-texto-atenunado: #64748b; /**/
+  
+  /* Texto */
+  --color-texto: #0f172a; /**/
+  --color-texto-atenunado: #64748b; /**/
 
    /* Borda */
-  --color-bordar: #D9CEB2; /**/ 
+  --color-borda: #D9CEB2; /**/ 
 }
 
 body {
