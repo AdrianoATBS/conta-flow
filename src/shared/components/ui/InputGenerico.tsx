@@ -1,3 +1,4 @@
+import { cn } from "@/shared/utils/cn"
 type InputTamanho = "sm" | "md" | "lg"
 type InputCores = "secundaria" | "superficie"
 
@@ -19,13 +20,15 @@ interface InputGenericoProps extends React.InputHTMLAttributes<HTMLInputElement>
 }
 
 export default function InputGenerico({tamanho="md", cores="superficie",
-     className = "", label, ...props}: InputGenericoProps){
+     className, label, ...props}: InputGenericoProps){
     return(
-        <>
-            <label>{label}</label>
+        <div className="flex flex-col gap-1">
+            {label && (
+                <label>{label}</label>
+            )}
             <input {...props}
-            className={`w-full border ${sizeClasses[tamanho]} ${colorClasses[cores]} ${className}`} />
-        </>
+            className={cn(`w-full border ${sizeClasses[tamanho]} ${colorClasses[cores]} ${className}`)} />
+        </div>
 
     )
 }

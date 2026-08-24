@@ -1,3 +1,5 @@
+import { cn } from "@/shared/utils/cn"
+
 type BotaoVariante = "primario" | "secundario" | "terciario"
 type BotaoTamanho = "sm" | "md" | "lg"
 
@@ -20,11 +22,11 @@ interface BotaoGenericoProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export default function BotaoGenerico({variante="primario", tamanho="md", texto,
-    className = "", ...props}: 
+    className, ...props}: 
     BotaoGenericoProps){
     return(
-        <button  className={`cursor-pointer ${variantClasses[variante]} 
-        ${sizeClasses[tamanho]} ${className}`} {...props}>
+        <button  className={cn(`cursor-pointer  ${variantClasses[variante]} 
+        ${sizeClasses[tamanho]} ${className}`)} {...props} >
             {texto}
         </button>
     )
