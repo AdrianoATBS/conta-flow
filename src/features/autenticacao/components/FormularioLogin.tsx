@@ -28,9 +28,13 @@ export default function FormularioLogin(){
                     <p className="text-sm text-[#5E5E5E] ">OU</p>
                     <div className="border-[#E5E2E1] border w-full"></div>
                 </div>
-                    <BotaoGenerico texto="Criar Conta" 
-                    className="bg-[#FCF9F8] border-[#C1C6D7] border
-                     text-black hover:bg-[#C1C6D7] hover:text-white" />
+                <div className="flex flex-col gap-2 w-full">
+                    <Link href="/cadastro" className="w-full">
+                        <BotaoGenerico texto="Criar Conta" 
+                        className="w-full bg-[#FCF9F8] border-[#C1C6D7] border
+                        text-black hover:bg-[#C1C6D7] hover:text-white" />
+                    </Link>
+                </div>
             </div>
             
             <nav >
