@@ -1,26 +1,32 @@
 "use client";
-import BotaoGenerico from "@/shared/components/ui/BotaoGenerico";
-import InputGenerico from "@/shared/components/ui/InputGenerico";
+import { BotaoGenerico, InputGenerico } from "@/shared/components/ui";
 import Link from "next/link";
 import { useState } from "react";
 import { SubmitEvent } from "react";
 import { registroService } from "../services/registro.services";
+import { useRouter } from "next/navigation";
 export default function FormularioCadastro() {
+
+    const router = useRouter();
 
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
-
+    const [confirmarSenha, setConfirmarSenha] = useState("");
     const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
         if(!nome || !email || !senha){
             alert("Por favor, preencha todos os campos.");
             return; 
         }
-        
+        if(senha !== confirmarSenha){
+            alert("As senhas estão diferentes.");
+            return;
+        }
+ 
         try {
-            const response = await registroService({ nome, email, senha });
-            console.log(response);
+            await registroService({ nome, email, senha });
+            router.push("/login");
         }catch(error){
             console.error("Erro ao registrar:", error);
         }
@@ -28,6 +34,7 @@ export default function FormularioCadastro() {
         setNome("");
         setEmail("");
         setSenha("");
+        setConfirmarSenha("");
     }
     
     return(
@@ -61,13 +68,13 @@ export default function FormularioCadastro() {
                     onChange={(e) => setSenha(e.target.value)}/>
                 </div>
 
-                {/* <div className="flex flex-col gap-1.5 " >
+                <div className="flex flex-col gap-1.5 " >
                     <label className="text-xs text-[#5E5E5E] md:text-sm">Confirmar Senha</label>
                     <InputGenerico placeholder="••••••••" type="password"  tamanho="sm" cores="secundaria"
                     className="rounded-lg border-borda outline-none"
-                    value={senha}
+                    value={confirmarSenha}
                     onChange={(e) => setConfirmarSenha(e.target.value)} />
-                </div> */}
+                </div>
 
                 <div className="flex flex-col gap-1.5 ">
                 <BotaoGenerico texto="Criar Conta"  className="hover:bg-black"/>
