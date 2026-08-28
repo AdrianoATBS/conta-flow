@@ -5,7 +5,9 @@ export default async function fetcher<T>(endpoint:string, options?:
         
         const response = await fetch(`${BASE_URL}${endpoint}`, options);
         if(!response.ok){
-            throw new Error(`Error na requisição: ${response.statusText}` );
+            const errorMessage = await response.text().catch(() => "");
+
+            throw new Error(`Erro ${response.status}: ${errorMessage || response.statusText}`);
         }
         return await response.json();
 }
