@@ -1,5 +1,5 @@
 import fetcher from "@/lib/fetcher";
-import { RegistroRequest } from "../types/login/registroRequest";
+import { RegistroRequest } from "../types/registro/registroRequest";
 
 export async function registroService(registro: RegistroRequest){
     return await fetcher<RegistroRequest>("/api/Usuarios", {
