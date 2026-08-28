@@ -1,6 +1,4 @@
-import FooterAutenticacao from "../components/FooterAutenticacao";
-import FormularioCadastro from "../components/FormularioCadastro";
-import HeaderAutenticacao from "../components/HeaderAutenticacao";
+import { FooterAutenticacao, FormularioCadastro, HeaderAutenticacao } from "../components";
 
 export default function CadastroPage() {
     return(

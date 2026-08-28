@@ -1,5 +1,5 @@
-import BotaoGenerico from "@/shared/components/ui/BotaoGenerico";
-import InputGenerico from "@/shared/components/ui/InputGenerico";
+import { BotaoGenerico, InputGenerico } from "@/shared/components/ui";
+
 import Link from "next/link";
 export default function FormularioLogin(){
     return(

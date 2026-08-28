@@ -1,6 +1,4 @@
-import FooterAutenticacao from "../components/FooterAutenticacao";
-import FormularioLogin from "../components/FormularioLogin";
-import HeaderAutenticacao from "../components/HeaderAutenticacao";
+import { FooterAutenticacao, FormularioLogin, HeaderAutenticacao } from "../components";
 
 export default function LoginPage(){
     return(
