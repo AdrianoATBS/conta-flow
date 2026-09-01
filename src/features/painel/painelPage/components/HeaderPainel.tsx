@@ -4,7 +4,7 @@ export default function HeaderPainel() {
     return(
         <header>
             <Header 
-                esquerda={<Logo EhHome={true} />}
+                esquerda={<Logo EhHome={false} />}
                 centro={null}
                 direita={
                 <div className="flex items-center gap-1">
