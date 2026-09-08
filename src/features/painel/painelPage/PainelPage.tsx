@@ -2,6 +2,7 @@ import FooterGenerico from "../components/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
 import HeaderPainel from "./components/HeaderPainel";
 import InformacoesPessoais from "./components/InformacoesPessoais";
+import SecaoSegura from "./components/SecaoSegura";
 import SecaoStatus from "./components/SecaoStatus";
 
 export default function PainelPage(){
@@ -16,6 +17,7 @@ export default function PainelPage(){
                 preferências de acesso." />
             <InformacoesPessoais />
             <SecaoStatus />
+            <SecaoSegura />
             </div>
             <FooterGenerico 
                 paragrafo="ContaFlow. Todos os direitos reservados."
