@@ -4,6 +4,7 @@ import HeaderPainel from "./components/HeaderPainel";
 import InformacoesPessoais from "./components/InformacoesPessoais";
 import SecaoSegura from "./components/SecaoSegura";
 import SecaoStatus from "./components/SecaoStatus";
+import ZonaPerigo from "./components/ZonaPerigo";
 
 export default function PainelPage(){
     return(
@@ -18,6 +19,7 @@ export default function PainelPage(){
             <InformacoesPessoais />
             <SecaoStatus />
             <SecaoSegura />
+            <ZonaPerigo />
             </div>
             <FooterGenerico 
                 paragrafo="ContaFlow. Todos os direitos reservados."
