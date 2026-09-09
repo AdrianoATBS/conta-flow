@@ -35,7 +35,7 @@ export default function InformacoesPessoais(){
             </div>
             <div className="w-full mt-4  flex flex-col px-4 pb-5 ">
                 <div className="w-fit flex items-center justify-center">
-                    <Link href="#" className="flex items-center gap-2 border
+                    <Link href="/configuracoes" className="flex items-center gap-2 border
                      border-[#E5E2E1] rounded-lg p-4 active:scale-95 hover:bg-white/30">
                         <MdOutlineSettings className="text-primaria text-lg" />
                         <span className="text-primaria"> Configurações</span>
