@@ -4,15 +4,14 @@ import { Header, Logo, Icons
 
 export default function HeaderConfiguracoes() {
     return(
-        <header>
-            <Header
-                esquerda={<Logo EhHome={false} /> }
-                centro={null}
-                direita={
-                    <Icons />
-                }
+        <Header
+            esquerda={<Logo EhHome={false} /> }
+            centro={null}
+            direita={
+                <Icons />
+            }
 
-            />
-        </header>
+        />
+       
     )
 }
