@@ -9,7 +9,7 @@ export default function PainelPage(){
             <div className="w-full max-w-2xl mx-auto pt-6 px-4
             flex flex-col gap-2 h-full">
             <TituloGenerico 
-                title="Minha Conta"
+                titulo="Minha Conta"
                 texto="Gerencie as informações do seu perfil e
                 preferências de acesso." />
             <InformacoesPessoais />

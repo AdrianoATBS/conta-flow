@@ -12,7 +12,7 @@ export default function SecaoConfiguracoes() {
         {link: "/configuracoes/faturamento", nome: "Faturamento", icone: <HiOutlineBanknotes />},
     ]
     return(
-        <nav className="w-full">
+        <nav className="w-full mb-5">
             <h2 className=" text-texto ml-2">Configurações</h2>
             <ul>
                 {opcoesConfiguracoes.map((opcao) => (
