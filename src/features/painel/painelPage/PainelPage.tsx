@@ -1,11 +1,7 @@
 import FooterGenerico from "../components/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
-import HeaderPainel from "./components/HeaderPainel";
-import InformacoesPessoais from "./components/InformacoesPessoais";
-import SecaoSegura from "./components/SecaoSegura";
-import SecaoStatus from "./components/SecaoStatus";
-import ZonaPerigo from "./components/ZonaPerigo";
-
+import { HeaderPainel, InformacoesPessoais, 
+    SecaoSegura, SecaoStatus, ZonaPerigo } from "./components";
 export default function PainelPage(){
     return(
         <div className="w-full min-h-screen flex flex-col ">
