@@ -30,7 +30,7 @@ export default function EditarPerfil(){
                 <div className="w-full flex flex-col ">
                     <label htmlFor="bio" className="text-sm text-[#5E5E5E]">Bio:</label>
                     <textarea id="bio" placeholder="Desenvolvedor Front-end apaixonado por tecnologia."    
-                    className="h-24 border botao-secundario pl-1  text-gray-400 text-sm 
+                    className="h-24 border botao-secundario px-2 py-1.5 text-gray-400 text-sm 
                     resize-none rounded-md
                     focus:outline-none "/>
                 </div>
