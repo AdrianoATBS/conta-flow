@@ -1,8 +1,6 @@
+import { EditarPerfil, HeaderConfiguracoes, SecaoConfiguracoes, StatusConta, ZonaPerigo } from "./components";
+import FooterGenerico from "../components/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
-import EditarPerfil from "./components/EditarPerfil";
-import HeaderConfiguracoes from "./components/HeaderConfiguracoes";
-import SecaoConfiguracoes from "./components/NavConfiguracoes";
-import StatusConta from "./components/StatusConta";
 export default function ConfiguracaoPage() {
     return (
         <div >
@@ -14,7 +12,9 @@ export default function ConfiguracaoPage() {
                 texto="Gerencie suas informações pessoais e preferências de conta."/>
                 <EditarPerfil />
                 <StatusConta />
+                <ZonaPerigo />
             </div>
+
         </div>
     )
 }
