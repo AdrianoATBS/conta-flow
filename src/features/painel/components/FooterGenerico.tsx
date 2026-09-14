@@ -9,7 +9,7 @@ export default function FooterGenerico({ paragrafo, links }: FooterGenericoProps
     return(
         <footer className="w-full flex flex-col mt-auto p-4 border-t border-[#E5E5E5] 
         bg-white pb-10 ">
-            <p className="text-xs font-bold">© {anoAtual} {paragrafo}</p>
+            <p className="text-xs font-bold text-center mb-1">© {anoAtual} {paragrafo}</p>
             <nav>
                 <ul className="flex gap-4  ">
                     {links.map((link, index) => (
