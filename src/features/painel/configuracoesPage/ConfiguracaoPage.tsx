@@ -14,7 +14,11 @@ export default function ConfiguracaoPage() {
                 <StatusConta />
                 <ZonaPerigo />
             </div>
-
+            <FooterGenerico
+            paragrafo="ContaFlow. Todos os direitos reservados."
+            links={["Termos de uso", "Política de privacidade", "Suporte"]}
+            
+            />
         </div>
     )
 }
