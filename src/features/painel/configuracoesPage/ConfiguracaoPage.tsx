@@ -1,4 +1,5 @@
 import TituloGenerico from "../components/TituloGenerico";
+import EditarPerfil from "./components/EditarPerfil";
 import HeaderConfiguracoes from "./components/HeaderConfiguracoes";
 import SecaoConfiguracoes from "./components/NavConfiguracoes";
 export default function ConfiguracaoPage() {
@@ -10,6 +11,7 @@ export default function ConfiguracaoPage() {
                 <SecaoConfiguracoes />
                 <TituloGenerico titulo="Configurações do Perfil" 
                 texto="Gerencie suas informações pessoais e preferências de conta."/>
+                <EditarPerfil />
             </div>
         </div>
     )
