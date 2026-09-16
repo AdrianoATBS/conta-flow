@@ -15,7 +15,7 @@ import FooterGenerico from "@/features/painel/components/FooterGenerico";
                     <div className="relative w-full h-56 md:h-64 lg:h-96">
                         <Image src="/not-found.png" alt="404" 
                         fill
-                        className="object-contain "
+                        className="object-contain border border-primaria bg-gray-300/30 rounded-2xl"
                         priority
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"/>
                     </div>
