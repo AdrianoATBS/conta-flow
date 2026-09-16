@@ -2,12 +2,12 @@
     import{ Header, Logo, BotaoSuporte}  from "@/shared/components/layout/HeaderBase";
     import { BotaoGenerico } from "@/shared/components/ui";
     import Link from "next/link";
-import FooterGenerico from "@/features/painel/components/FooterGenerico";
+import FooterGenerico from "@/shared/components/layout/FooterGenerico";
     export default function NotFound() {
         return(
             <main className=" w-full flex flex-col items-center min-h-screen">
                 <Header 
-                esquerda={<Logo EhHome={true} />}
+                esquerda={<Logo EhHome={false} />}
                 centro={null}
                 direita={<BotaoSuporte/>}
                 />
@@ -27,7 +27,7 @@ import FooterGenerico from "@/features/painel/components/FooterGenerico";
                     </p>
                     <div className="w-full flex flex-col gap-2 mt-2 mb-4">
                         <Link href="/"  >
-                            <BotaoGenerico texto="<- Voltar ao inicio" className="bg-botao-primario
+                            <BotaoGenerico texto="← Voltar ao início" className="bg-botao-primario
                             hover:bg-botao-primario/70 active:scale-95 w-full" />
                         </Link>
                         <Link href="#" >
