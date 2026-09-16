@@ -2,6 +2,7 @@
     import{ Header, Logo, BotaoSuporte}  from "@/shared/components/layout/HeaderBase";
     import { BotaoGenerico } from "@/shared/components/ui";
     import Link from "next/link";
+import FooterGenerico from "@/features/painel/components/FooterGenerico";
     export default function NotFound() {
         return(
             <main className=" w-full flex flex-col items-center min-h-screen">
@@ -35,6 +36,10 @@
                         </Link>
                     </div>
                 </section>
+                <FooterGenerico 
+                    paragrafo="Conta Flow. Todos os direitos reservados."
+                    links={["Política de Privacidade", "Termos de Serviço", "Suporte"]}
+                />
             </main>
         )
     }
