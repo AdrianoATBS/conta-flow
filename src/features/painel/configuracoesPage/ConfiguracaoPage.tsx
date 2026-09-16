@@ -1,5 +1,5 @@
 import { EditarPerfil, HeaderConfiguracoes, SecaoConfiguracoes, StatusConta, ZonaPerigo } from "./components";
-import FooterGenerico from "../components/FooterGenerico";
+import FooterGenerico from "../../../shared/components/layout/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
 export default function ConfiguracaoPage() {
     return (

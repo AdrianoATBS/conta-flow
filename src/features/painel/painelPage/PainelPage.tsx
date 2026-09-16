@@ -1,4 +1,4 @@
-import FooterGenerico from "../components/FooterGenerico";
+import FooterGenerico from "../../../shared/components/layout/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
 import { HeaderPainel, InformacoesPessoais, 
     SecaoSegura, SecaoStatus, ZonaPerigo } from "./components";
