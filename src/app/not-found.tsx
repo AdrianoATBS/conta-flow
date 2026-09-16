@@ -19,7 +19,7 @@ import FooterGenerico from "@/shared/components/layout/FooterGenerico";
                         loading="eager"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"/>
                     </div>
-                    <h2 className="text-2xl font-bold text-center">404 - Página não encontrada</h2>
+                    <h1 className="text-2xl font-bold text-center">404 - Página não encontrada</h1>
                     <p className="text-center text-texto-atenunado">
                         Parece que o link que você seguiu não existe
                         mais ou foi movido para uma nova localização.
