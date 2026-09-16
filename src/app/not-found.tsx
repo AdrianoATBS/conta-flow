@@ -16,7 +16,7 @@ import FooterGenerico from "@/shared/components/layout/FooterGenerico";
                         <Image src="/not-found.png" alt="404" 
                         fill
                         className="object-contain border border-primaria bg-gray-300/30 rounded-2xl"
-                        priority
+                        loading="eager"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"/>
                     </div>
                     <h2 className="text-2xl font-bold text-center">404 - Página não encontrada</h2>
