@@ -44,17 +44,13 @@ export default function ZonaPerigo(){
                    
                     <BotaoGenerico texto="Excluir Conta" className="w-full mt-2  
                     text-white bg-[#BA1A1A] rounded-xl p-1 active:scale-95"
-                    onClick={() => handleAbrirModal()}
+                    onClick={handleAbrirModal}
                     />
                 </div>
                 {abrirModal && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center
-                     bg-neutral-800/45 backdrop-blur-[2px] p-6
-                    ">
-                        <div className="bg-white  rounded-lg shadow-lg">  
-                            <ModalExclusao fecharModal={() => setAbrirModal(false)} />
-                        </div>
-                    </div>
+                       
+                    <ModalExclusao fecharModal={() => setAbrirModal(false)} />
+       
                 )}
 
                 
