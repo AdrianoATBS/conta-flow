@@ -1,7 +1,15 @@
+"use client";
 import { BotaoGenerico } from "@/shared/components/ui";
 import { GoAlertFill } from "react-icons/go";
+import { useState } from "react";
+import ModalExclusao from "./ModalExclusao";
 
 export default function ZonaPerigo(){
+    const [abrirModal, setAbrirModal] = useState(false);
+    
+    const handleAbrirModal = () => {
+        setAbrirModal(true);
+    }
     return(
         <section className="w-full p-4 border border-[#BA1A1A]/30 bg-[#FFDAD6]/20 rounded-lg mb-5">
                 <div className="flex items-center gap-2 mb-2">
@@ -28,13 +36,28 @@ export default function ZonaPerigo(){
                     className="w-full mt-2 text-[#0058C3] bg-white border border-[#0058C3]
                      rounded-xl p-1 hover:bg-[#0058C3]/10 active:scale-95"/>
                 </div>
+
                 <div className="flex flex-col gap-2 mt-4 mb-3 p-4
                  bg-[#BA1A1A]/5 border border-[#BA1A1A] rounded-lg ">
                     <h3 className="font-bold text-[#BA1A1A]">Excluir Conta</h3>
                     <p className="text-sm">Esta ação é permanente e não pode ser desfeita. Todos os seus dados serão perdidos.</p>
+                   
                     <BotaoGenerico texto="Excluir Conta" className="w-full mt-2  
-                    text-white bg-[#BA1A1A] rounded-xl p-1 active:scale-95"/>
+                    text-white bg-[#BA1A1A] rounded-xl p-1 active:scale-95"
+                    onClick={() => handleAbrirModal()}
+                    />
                 </div>
+                {abrirModal && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center
+                     bg-neutral-800/45 backdrop-blur-[2px] p-6
+                    ">
+                        <div className="bg-white  rounded-lg shadow-lg">  
+                            <ModalExclusao fecharModal={() => setAbrirModal(false)} />
+                        </div>
+                    </div>
+                )}
+
+                
         </section>
     )
 }
