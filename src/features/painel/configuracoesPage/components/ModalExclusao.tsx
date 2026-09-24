@@ -1,12 +1,24 @@
 import { BotaoGenerico } from "@/shared/components/ui";
 import { FiAlertTriangle } from "react-icons/fi";
 import { FiX } from "react-icons/fi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 interface ModalExclusaoProps {
     fecharModal: () => void;
 }
 
 export default function ModalExclusao( { fecharModal }: ModalExclusaoProps) {
+    const [tempo, setTempo] = useState(30);
+
+    useEffect(() => {
+        if(tempo <= 0) return;
+
+        const temporizador = setInterval(() => {
+            setTempo((prevTempoAnterior) => prevTempoAnterior - 1);
+        }, 1000);
+        return () => clearInterval(temporizador);
+    }, [tempo]);
+
+    const desativado = tempo > 0;
 
     return(
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-800/45 
@@ -31,8 +43,13 @@ export default function ModalExclusao( { fecharModal }: ModalExclusaoProps) {
                     removidos permanentemente de nossos
                     servidores.</p>
                                 
-                <BotaoGenerico texto="Excluir Permanentemente" className="bg-[#BA1A1A] text-white p-2 
-                rounded-lg hover:bg-[#BA1A1A]/80 active:scale-95 w-full "/>
+                <p className="text-sm text-texto-atenunado">Tempo restante: {tempo} segundos</p>
+                
+                <BotaoGenerico texto="Excluir Permanentemente" className={`${desativado ? 
+                'opacity-50 cursor-not-allowed pointer-events-none ' : 'bg-[#BA1A1A] hover:bg-[#BA1A1A]/80 active:scale-95'} 
+                 text-white p-2 rounded-lg  w-full`}
+                 disabled={desativado}
+                 />
             
                 <BotaoGenerico texto="Cancelar" className="bg-[#FFDAD6]/20 border border-[#C1C6D7]
                 text-[#5E5E5E] p-2 rounded-lg hover:bg-[#E5E5E5]/80 active:scale-95 w-full" 
