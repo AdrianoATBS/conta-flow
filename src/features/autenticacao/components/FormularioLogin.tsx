@@ -9,7 +9,7 @@ export default function FormularioLogin(){
 
     const [email, setEmail] = useState<string>("");
     const [senha, setSenha] = useState<string>("");
-
+    const [token, setToken] = useState<string | null>(null);
     const router = useRouter();
 
     const handleSubmit = async  (e: SubmitEvent<HTMLFormElement>) =>{
@@ -23,7 +23,11 @@ export default function FormularioLogin(){
             return;
         }
         try{
-            await loginService({ email, senha });
+            const response = await loginService({ email, senha, });
+            setToken(response.accessToken);
+            localStorage.setItem("token", response.accessToken);
+            console.log("Token armazenado no localStorage:", response.accessToken);
+
             router.push("/");
         } catch (error) {
             console.error("Erro ao fazer login:", error);
@@ -31,6 +35,8 @@ export default function FormularioLogin(){
         setEmail("");
         setSenha("");
     }
+   
+    
  
     return(
         <section className="w-full max-w-md flex flex-col items-center gap-4 mx-auto">
