@@ -3,15 +3,26 @@ import { FaRegCalendar } from "react-icons/fa";
 import { MdHistory } from "react-icons/md";
 import { MdOutlineSettings } from "react-icons/md";
 import { FaPencilAlt } from "react-icons/fa";
+import { FormatarData } from "../../utils/formatacaoData";
+interface InformacoesPessoaisProps {
+    nome: string;
+    email: string;
+    criadoEm: string;
+}
 
 import Link from "next/link";
-export default function InformacoesPessoais(){
+export default function InformacoesPessoais({nome, email, criadoEm}: InformacoesPessoaisProps){
+
+    const criadoEmFormatado = FormatarData(criadoEm);
+    
     const InformacoesPessoais = [
-        {nome: "Nome Completo", valor: "Ricardo Almeida", },
-        {nome: "ENDEREÇO DE EMAIL", valor: "ricardo.almeida@example.com"},
-        {nome: "DATA DE CRIAÇÃO", valor: "15 de Janeiro, 2024", icon: <FaRegCalendar />},
+        {nome: "Nome Completo", valor: nome, },
+        {nome: "ENDEREÇO DE EMAIL", valor: email},
+        {nome: "DATA DE CRIAÇÃO", valor: criadoEmFormatado, icon: <FaRegCalendar />},
         {nome: "ÚLTIMO LOGIN", valor: "Hoje às 9:42 (SAO PAULO)", icon: <MdHistory />},
     ]
+    
+
     return(
         <section className="w-full border border-[#E5E2E1] rounded-lg mt-5 mb-10 ">
             <div className="w-full flex items-center gap-2 border-b border-[#E5E2E1] px-4 pt-4 pb-4 ">

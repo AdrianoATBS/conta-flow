@@ -1,8 +1,30 @@
+"use client";
 import FooterGenerico from "../../../shared/components/layout/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
+import { useEffect, useState } from "react";
+import { painelService } from "../services/painel/painel.services";
 import { HeaderPainel, InformacoesPessoais, 
     SecaoSegura, SecaoStatus, ZonaPerigo } from "./components";
 export default function PainelPage(){
+    
+    const [nome, setNome] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [criadoEm, setCriadoEm] = useState<string>("");
+
+    useEffect(() => {
+        const  fetchPainel = async () => {
+            try{
+                const response = await painelService();
+                setNome(response.nome);
+                setEmail(response.email);
+                setCriadoEm(response.criadoEm);
+            } catch (error) {
+                console.error("Erro ao buscar dados do painel:", error);
+            }
+        }
+        fetchPainel();
+    }, [])
+
     return(
         <div className="w-full min-h-screen flex flex-col ">
             <HeaderPainel />
@@ -12,7 +34,7 @@ export default function PainelPage(){
                 titulo="Minha Conta"
                 texto="Gerencie as informações do seu perfil e
                 preferências de acesso." />
-            <InformacoesPessoais />
+            <InformacoesPessoais nome={nome} email={email} criadoEm={criadoEm} />
             <SecaoStatus />
             <SecaoSegura />
             <ZonaPerigo />
