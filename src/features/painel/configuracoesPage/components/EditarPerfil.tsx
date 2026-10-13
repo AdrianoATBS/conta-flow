@@ -1,13 +1,22 @@
 import { BotaoGenerico, InputGenerico } from "@/shared/components/ui";
 import { FaUserCircle } from "react-icons/fa";
+import { useState } from "react";
+interface InformacoesPerfil {
+    id: string;
+    nome: string;
+    salvarNoBanco?: (dados: {id: string, nome: string}) => void;
+}
+export default function EditarPerfil({ id, nome, salvarNoBanco }: InformacoesPerfil){
+    
+    const [nomeAtualizado, setNomeAtualizado] = useState<string>(nome);
 
-export default function EditarPerfil(){
     const informacoes = [
-        {id: "nome", dica: "Alexandre Silva", label: "Nome" },
-        {id: "username", dica: "@alexsilva", label: "Nome de usuário" },
-        {id: "email", dica: "alexandre.silva@example.com", label: "Email"},
+        {id: "nome", dica: "Alexandre Silva", label: "Nome", valor: nomeAtualizado},
+        {id: "email", dica: "alexandre.silva@example.com", label: "Email",},
         
     ]
+    
+
     return(
         <section className="w-full mb-5 ">
             <header className="flex p-2 gap-2"> 
@@ -21,8 +30,9 @@ export default function EditarPerfil(){
                 {informacoes.map((info) => (
                     <div key={info.label} className="flex flex-col gap-1">
                         <label className="text-sm text-[#5E5E5E]" htmlFor={info.id}>{info.label}</label>
-                        <InputGenerico id={info.id} placeholder={info.dica}
-                        tamanho="sm" cores="secundaria" 
+                        <InputGenerico id={info.id} placeholder={info.dica} value={info.valor}
+                        onChange={info.id === "nome" ? (e) => setNomeAtualizado(e.target.value) : undefined}
+                        tamanho="sm" cores="secundaria"
                         className="rounded-sm outline-none" />
                     </div>
                 ))}
@@ -37,7 +47,8 @@ export default function EditarPerfil(){
             </form>
             <div className="w-full flex justify-end mt-3">
                 <BotaoGenerico texto="Salvar Alterações" className="hover:bg-botao-primario/80 
-                active:scale-95" />
+                active:scale-95" onClick={() => 
+                salvarNoBanco?.({id , nome: nomeAtualizado})} />
             </div>
         </section>
     )

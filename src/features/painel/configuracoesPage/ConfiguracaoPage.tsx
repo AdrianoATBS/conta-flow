@@ -1,7 +1,42 @@
+"use client";
 import { EditarPerfil, HeaderConfiguracoes, SecaoConfiguracoes, StatusConta, ZonaPerigo } from "./components";
 import FooterGenerico from "../../../shared/components/layout/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
+import { useState, useEffect } from "react";
+import { editarPerfilService } from "../services/configuracao/editarPerfil.services";
+import { painelService } from "../services/painel/painel.services";
+
 export default function ConfiguracaoPage() {
+    const [nome, setNome] = useState<string>("");
+  
+    const [id, setId] = useState<string>("");
+
+    useEffect(() => {
+        const fetchConfiguracoes = async () => {
+            try{
+                const response = await painelService();
+                setId(response.id);
+                
+                setNome(response.nome);
+
+            }catch (error) {
+                console.error("Erro ao buscar dados do painel:", error);
+            }
+        }
+        fetchConfiguracoes();
+    }, []);  
+
+
+   const salvarNoBanco = async (dadosAtualizados: {id: string, nome: string}) => {
+        try{
+            const response = await editarPerfilService(dadosAtualizados);
+            console.log("Dados atualizados salvos no banco:", response);
+        }
+        catch (error) {
+            console.error("Erro ao salvar dados no banco:", error);
+        }
+   }
+
     return (
         <div >
             <HeaderConfiguracoes />
@@ -10,7 +45,11 @@ export default function ConfiguracaoPage() {
                 <SecaoConfiguracoes />
                 <TituloGenerico titulo="Configurações do Perfil" 
                 texto="Gerencie suas informações pessoais e preferências de conta."/>
-                <EditarPerfil />
+                {id ? (
+                    <EditarPerfil id={id} nome={nome} salvarNoBanco={salvarNoBanco} />
+                ) : (
+                    <p>Carregando informações do perfil...</p>
+                )}
                 <StatusConta />
                 <ZonaPerigo />
             </div>
