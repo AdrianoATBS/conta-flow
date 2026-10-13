@@ -3,7 +3,7 @@ import { EditarPerfil, HeaderConfiguracoes, SecaoConfiguracoes, StatusConta, Zon
 import FooterGenerico from "../../../shared/components/layout/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
 import { useState, useEffect } from "react";
-import { editarPerfilService } from "../services/configuracao/editarPerfil.services";
+import { editarNomeService } from "../services/configuracao/editarNome.services";
 import { painelService } from "../services/painel/painel.services";
 
 export default function ConfiguracaoPage() {
@@ -29,7 +29,7 @@ export default function ConfiguracaoPage() {
 
    const salvarNoBanco = async (dadosAtualizados: {id: string, nome: string}) => {
         try{
-            const response = await editarPerfilService(dadosAtualizados);
+            const response = await editarNomeService(dadosAtualizados);
             console.log("Dados atualizados salvos no banco:", response);
         }
         catch (error) {
