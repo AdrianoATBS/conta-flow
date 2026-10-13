@@ -4,17 +4,26 @@ import { useState } from "react";
 interface InformacoesPerfil {
     id: string;
     nome: string;
-    salvarNoBanco?: (dados: {id: string, nome: string}) => void;
+    novoEmail: string;
+    salvarNoBanco?: (dados: {id: string, nome: string, novoEmail:string}, 
+        campoAlterado: "nome" | "novoEmail") => void;
 }
-export default function EditarPerfil({ id, nome, salvarNoBanco }: InformacoesPerfil){
+export default function EditarPerfil({ id, nome, novoEmail, salvarNoBanco }: InformacoesPerfil){
     
     const [nomeAtualizado, setNomeAtualizado] = useState<string>(nome);
+    const [emailAtualizado, setEmailAtualizado] = useState<string>(novoEmail);
 
     const informacoes = [
         {id: "nome", dica: "Alexandre Silva", label: "Nome", valor: nomeAtualizado},
-        {id: "email", dica: "alexandre.silva@example.com", label: "Email",},
+        {id: "email", dica: "alexandre.silva@example.com", label: "Email", valor: emailAtualizado},
         
     ]
+    const handleSalvarAlteracoes = () => {
+        if(salvarNoBanco){
+            salvarNoBanco({id, nome: nomeAtualizado, novoEmail: emailAtualizado}, "nome");
+            salvarNoBanco({id, nome: nomeAtualizado, novoEmail: emailAtualizado}, "novoEmail");
+        }
+    }
     
 
     return(
@@ -31,7 +40,8 @@ export default function EditarPerfil({ id, nome, salvarNoBanco }: InformacoesPer
                     <div key={info.label} className="flex flex-col gap-1">
                         <label className="text-sm text-[#5E5E5E]" htmlFor={info.id}>{info.label}</label>
                         <InputGenerico id={info.id} placeholder={info.dica} value={info.valor}
-                        onChange={info.id === "nome" ? (e) => setNomeAtualizado(e.target.value) : undefined}
+                        onChange={info.id === "nome" ? (e) => setNomeAtualizado(e.target.value) : 
+                            (e) => setEmailAtualizado(e.target.value)}
                         tamanho="sm" cores="secundaria"
                         className="rounded-sm outline-none" />
                     </div>
@@ -47,8 +57,7 @@ export default function EditarPerfil({ id, nome, salvarNoBanco }: InformacoesPer
             </form>
             <div className="w-full flex justify-end mt-3">
                 <BotaoGenerico texto="Salvar Alterações" className="hover:bg-botao-primario/80 
-                active:scale-95" onClick={() => 
-                salvarNoBanco?.({id , nome: nomeAtualizado})} />
+                active:scale-95" onClick={() => handleSalvarAlteracoes()} />
             </div>
         </section>
     )
