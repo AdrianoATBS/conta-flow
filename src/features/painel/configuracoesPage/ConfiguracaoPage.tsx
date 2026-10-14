@@ -57,7 +57,8 @@ export default function ConfiguracaoPage() {
                 <TituloGenerico titulo="Configurações do Perfil" 
                 texto="Gerencie suas informações pessoais e preferências de conta."/>
                 {id ? (
-                    <EditarPerfil id={id} nome={nome} novoEmail={novoEmail} salvarNoBanco={salvarNoBanco} />
+                    <EditarPerfil 
+                    id={id} nome={nome} novoEmail={novoEmail} salvarNoBanco={salvarNoBanco} />
                 ) : (
                     <p>Carregando informações do perfil...</p>
                 )}

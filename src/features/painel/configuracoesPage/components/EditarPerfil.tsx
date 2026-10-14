@@ -1,7 +1,7 @@
 "use client"
 import { BotaoGenerico, InputGenerico } from "@/shared/components/ui";
 import { FaUserCircle } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 interface InformacoesPerfil {
     id: string;
     nome: string;
@@ -15,21 +15,22 @@ export default function EditarPerfil({ id, nome, novoEmail, salvarNoBanco }: Inf
     const [emailAtualizado, setEmailAtualizado] = useState<string>(novoEmail);
 
 
-    
+
+
+
     const informacoes = [
-        {id: "nome", dica: "Alexandre Silva", label: "Nome", valor: nomeAtualizado},
-        {id: "email", dica: "alexandre.silva@example.com", label: "Email", valor: emailAtualizado},
+        {id: "nome", dica: "Alexandre Silva", label: "Nome", },
+        {id: "email", dica: "alexandre.silva@example.com", label: "Email", },
         
     ]
+
     const  handleSalvarAlteracoes = async () => {
         if(salvarNoBanco){
             if(nomeAtualizado !== nome ){
-                await salvarNoBanco({id, nome: nomeAtualizado, novoEmail: emailAtualizado}, "nome");
-                console.log("Nome atualizado:", nomeAtualizado);        
+                await salvarNoBanco({id, nome: nomeAtualizado, novoEmail: emailAtualizado}, "nome");   
             }
             if(emailAtualizado !== novoEmail){
                 await salvarNoBanco({id, nome: nomeAtualizado, novoEmail: emailAtualizado}, "novoEmail");
-                console.log("Email atualizado:", emailAtualizado);
             }
         }
 
@@ -49,7 +50,7 @@ export default function EditarPerfil({ id, nome, novoEmail, salvarNoBanco }: Inf
                 {informacoes.map((info) => (
                     <div key={info.label} className="flex flex-col gap-1">
                         <label className="text-sm text-[#5E5E5E]" htmlFor={info.id}>{info.label}</label>
-                        <InputGenerico id={info.id} placeholder={info.dica} value={info.valor}
+                        <InputGenerico id={info.id} placeholder={info.dica} 
                         onChange={info.id === "nome" ? (e) => setNomeAtualizado(e.target.value) : 
                             (e) => setEmailAtualizado(e.target.value)}
                         tamanho="sm" cores="secundaria"
