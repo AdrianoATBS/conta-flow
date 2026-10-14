@@ -29,17 +29,19 @@ export default function ConfiguracaoPage() {
 
 
    const salvarNoBanco = async (dadosAtualizados: {id: string, nome: string, novoEmail:string },
-    campoAlterado: "nome" | "novoEmail"
-   ) => {
+    campoAlterado: "nome" | "novoEmail" ) => {
         try{
-            console.log("Dados a serem salvos no banco:", dadosAtualizados);
             if(campoAlterado === "nome" ){
                 const responseNome = await editarNomeService({id:dadosAtualizados.id, nome: dadosAtualizados.nome});
                 console.log("Dados do nome atualizados salvos no banco:", responseNome);
+                setNome(dadosAtualizados.nome);
+            
             }else if(campoAlterado === "novoEmail"){
                 const responseEmail = await editarEmailService({id:dadosAtualizados.id, novoEmail: dadosAtualizados.novoEmail});
-                console.log("Dados do email atualizados salvos no banco:", responseEmail);   
+                console.log("Dados do email atualizados salvos no banco:", responseEmail);    
+                setNovoEmail(dadosAtualizados.novoEmail);
             }
+          
         }
         catch (error) {
             console.error("Erro ao salvar dados no banco:", error);

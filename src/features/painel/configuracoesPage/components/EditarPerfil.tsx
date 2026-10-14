@@ -1,3 +1,4 @@
+"use client"
 import { BotaoGenerico, InputGenerico } from "@/shared/components/ui";
 import { FaUserCircle } from "react-icons/fa";
 import { useState } from "react";
@@ -5,24 +6,33 @@ interface InformacoesPerfil {
     id: string;
     nome: string;
     novoEmail: string;
-    salvarNoBanco?: (dados: {id: string, nome: string, novoEmail:string}, 
-        campoAlterado: "nome" | "novoEmail") => void;
+    salvarNoBanco: (dados: {id: string, nome: string, novoEmail:string}, 
+        campoAlterado: "nome" | "novoEmail") => Promise<void>;
 }
 export default function EditarPerfil({ id, nome, novoEmail, salvarNoBanco }: InformacoesPerfil){
     
     const [nomeAtualizado, setNomeAtualizado] = useState<string>(nome);
     const [emailAtualizado, setEmailAtualizado] = useState<string>(novoEmail);
 
+
+    
     const informacoes = [
         {id: "nome", dica: "Alexandre Silva", label: "Nome", valor: nomeAtualizado},
         {id: "email", dica: "alexandre.silva@example.com", label: "Email", valor: emailAtualizado},
         
     ]
-    const handleSalvarAlteracoes = () => {
+    const  handleSalvarAlteracoes = async () => {
         if(salvarNoBanco){
-            salvarNoBanco({id, nome: nomeAtualizado, novoEmail: emailAtualizado}, "nome");
-            salvarNoBanco({id, nome: nomeAtualizado, novoEmail: emailAtualizado}, "novoEmail");
+            if(nomeAtualizado !== nome ){
+                await salvarNoBanco({id, nome: nomeAtualizado, novoEmail: emailAtualizado}, "nome");
+                console.log("Nome atualizado:", nomeAtualizado);        
+            }
+            if(emailAtualizado !== novoEmail){
+                await salvarNoBanco({id, nome: nomeAtualizado, novoEmail: emailAtualizado}, "novoEmail");
+                console.log("Email atualizado:", emailAtualizado);
+            }
         }
+
     }
     
 
