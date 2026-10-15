@@ -19,8 +19,8 @@ export default function EditarPerfil({ id, nome, novoEmail, salvarNoBanco }: Inf
 
 
     const informacoes = [
-        {id: "nome", dica: "Alexandre Silva", label: "Nome", },
-        {id: "email", dica: "alexandre.silva@example.com", label: "Email", },
+        {id: "nome", dica: "Alexandre Silva", label: "Nome", valor: nomeAtualizado},
+        {id: "email", dica: "alexandre.silva@example.com", label: "Email", valor: emailAtualizado},
         
     ]
 
@@ -50,7 +50,7 @@ export default function EditarPerfil({ id, nome, novoEmail, salvarNoBanco }: Inf
                 {informacoes.map((info) => (
                     <div key={info.label} className="flex flex-col gap-1">
                         <label className="text-sm text-[#5E5E5E]" htmlFor={info.id}>{info.label}</label>
-                        <InputGenerico id={info.id} placeholder={info.dica} 
+                        <InputGenerico id={info.id} placeholder={info.dica}  value={info.valor}
                         onChange={info.id === "nome" ? (e) => setNomeAtualizado(e.target.value) : 
                             (e) => setEmailAtualizado(e.target.value)}
                         tamanho="sm" cores="secundaria"
