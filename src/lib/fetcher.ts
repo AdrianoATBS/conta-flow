@@ -20,5 +20,6 @@ export default async function fetcher<T>(endpoint:string, options:
 
             throw new Error(`Erro ${response.status}: ${errorMessage || response.statusText}`);
         }
-        return await response.json();
+        const text = await response.text();
+        return text ? JSON.parse(text) : undefined as T;
 }
