@@ -1,12 +1,11 @@
 
 import fetcher from "@/lib/fetcher";
-export async function zonaDePerigo() {
+export async function desativarUsuario() {
     return await fetcher(`/api/Usuarios/desativar`,{
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({}),
     });
 
 }
