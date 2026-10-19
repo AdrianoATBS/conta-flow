@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 import { editarNomeService } from "../services/configuracao/editarNome.services";
 import { painelService } from "../services/painel/painel.services";
 import { editarEmailService } from "../services/configuracao/editarEmail.services";
-import { zonaDePerigo } from "../services/configuracao/zonaDePerigo.services";
+import { desativarUsuario } from "../services/configuracao/desativarUsuario.services";
+import { reativarUsuario } from "../services/configuracao/reativarUsuario.services";
 export default function ConfiguracaoPage() {
     const [nome, setNome] = useState<string>("");
     const [novoEmail, setNovoEmail] = useState<string>("");
@@ -49,15 +50,23 @@ export default function ConfiguracaoPage() {
         }
    }
 
-      const handleDesativarConta = async () => {
-           try{
-               const response = await zonaDePerigo();
-               console.log("Conta desativada com sucesso:", response);
-           } catch (error) {
-               console.error("Erro ao desativar conta:", error);
-           }
-      }
-      
+    const handleDesativarConta = async () => {
+        try{
+            const response = await desativarUsuario();
+            console.log("Conta desativada com sucesso:", response);
+        } catch (error) {
+            console.error("Erro ao desativar conta:", error);
+        }
+    }
+
+    const handleReativarConta = async () => {
+        try{
+            const response = await reativarUsuario();
+            console.log("Conta reativada com sucesso:", response);
+        } catch (error) {
+            console.error("Erro ao reativar conta:", error);
+        }
+    }
 
     return (
         <div >
@@ -74,7 +83,7 @@ export default function ConfiguracaoPage() {
                     <p>Carregando informações do perfil...</p>
                 )}
                 <StatusConta/>
-                <ZonaPerigo  desativarConta={handleDesativarConta}/>
+                <ZonaPerigo  desativarConta={handleDesativarConta} reativarConta={handleReativarConta}  />
             </div>
             <FooterGenerico
             paragrafo="ContaFlow. Todos os direitos reservados."

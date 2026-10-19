@@ -5,9 +5,10 @@ import { useState } from "react";
 import ModalExclusao from "./ModalExclusao";
 interface ZonaPerigoProps {
     desativarConta?: () => Promise<void>;
+    reativarConta?: () => Promise<void>;
 }
 
-export default function ZonaPerigo({desativarConta}: ZonaPerigoProps) {
+export default function ZonaPerigo({desativarConta, reativarConta}: ZonaPerigoProps) {
     const [abrirModal, setAbrirModal] = useState(false);
     
     const handleAbrirModal = () => {
@@ -19,6 +20,14 @@ export default function ZonaPerigo({desativarConta}: ZonaPerigoProps) {
         }
         else{
             console.error("Função desativarConta não fornecida.");
+        }
+    }
+    const handleReativarConta = () => {
+        if(reativarConta){
+            reativarConta();
+        }
+        else{
+            console.error("Função reativarConta não fornecida.");
         }
     }
 
@@ -50,7 +59,7 @@ export default function ZonaPerigo({desativarConta}: ZonaPerigoProps) {
                     <BotaoGenerico texto="Reativar Conta" 
                     className="w-full mt-2 text-[#0058C3] bg-white border border-[#0058C3]
                      rounded-xl p-1 hover:bg-[#0058C3]/10 active:scale-95" 
-                     
+                     onClick={() => {handleReativarConta();}}
                     />
                 </div>
 
