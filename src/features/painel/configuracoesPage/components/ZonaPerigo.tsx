@@ -3,13 +3,26 @@ import { BotaoGenerico } from "@/shared/components/ui";
 import { GoAlertFill } from "react-icons/go";
 import { useState } from "react";
 import ModalExclusao from "./ModalExclusao";
+interface ZonaPerigoProps {
+    desativarConta?: () => Promise<void>;
+}
 
-export default function ZonaPerigo(){
+export default function ZonaPerigo({desativarConta}: ZonaPerigoProps) {
     const [abrirModal, setAbrirModal] = useState(false);
     
     const handleAbrirModal = () => {
         setAbrirModal(true);
     }
+    const handleDesativarConta = () => {
+        if(desativarConta){
+            desativarConta();
+        }
+        else{
+            console.error("Função desativarConta não fornecida.");
+        }
+    }
+
+    
     return(
         <section className="w-full p-4 border border-[#BA1A1A]/30 bg-[#FFDAD6]/20 rounded-lg mb-5">
                 <div className="flex items-center gap-2 mb-2">
@@ -26,15 +39,19 @@ export default function ZonaPerigo(){
                     <h3 className="font-bold">Desativar Conta</h3>
                     <p className="text-sm">Sua conta ficará oculta até que você faça login novamente.</p>
                     <BotaoGenerico texto="Desativar Conta" className="w-full mt-2 text-[#BA1A1A] bg-white 
-                    border border-[#BA1A1A] p-1 rounded-xl hover:bg-[#BA1A1A]/10 active:scale-95 "/>
+                    border border-[#BA1A1A] p-1 rounded-xl hover:bg-[#BA1A1A]/10 active:scale-95 "
+                    onClick={() => handleDesativarConta()}/>
                 </div>
+                
                 <div className="flex flex-col gap-2 mt-4 mb-3 p-4
                  bg-superficie border-2 border-primaria rounded-lg ">
                     <h3 className="font-bold">Reativar conta</h3>
                     <p className="text-sm">Se você desativou sua conta, pode reativá-la a qualquer momento fazendo login novamente.</p>
                     <BotaoGenerico texto="Reativar Conta" 
                     className="w-full mt-2 text-[#0058C3] bg-white border border-[#0058C3]
-                     rounded-xl p-1 hover:bg-[#0058C3]/10 active:scale-95"/>
+                     rounded-xl p-1 hover:bg-[#0058C3]/10 active:scale-95" 
+                     
+                    />
                 </div>
 
                 <div className="flex flex-col gap-2 mt-4 mb-3 p-4
