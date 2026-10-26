@@ -3,6 +3,7 @@ import { BotaoGenerico } from "@/shared/components/ui";
 import { GoAlertFill } from "react-icons/go";
 import { useState } from "react";
 import ModalExclusao from "./ModalExclusao";
+import { removerUsuario } from "../../services/configuracao/removerUsuario.services";
 interface ZonaPerigoProps {
     desativarConta?: () => Promise<void>;
     reativarConta?: () => Promise<void>;
@@ -28,6 +29,16 @@ export default function ZonaPerigo({desativarConta, reativarConta}: ZonaPerigoPr
         }
         else{
             console.error("Função reativarConta não fornecida.");
+        }
+    }
+    const handleRemoverUsuario =  async () => {
+        try{
+            const response = await removerUsuario();
+            console.log("Conta removida com sucesso:", response);
+        }
+        catch (error) {
+            console.error("Erro ao remover conta:", error);
+            throw error; 
         }
     }
 
@@ -75,7 +86,9 @@ export default function ZonaPerigo({desativarConta, reativarConta}: ZonaPerigoPr
                 </div>
                 {abrirModal && (
                        
-                    <ModalExclusao fecharModal={() => setAbrirModal(false)} />
+                    <ModalExclusao fecharModal={() => setAbrirModal(false)}
+                     removeUsuario={handleRemoverUsuario}
+                     />
        
                 )}
 

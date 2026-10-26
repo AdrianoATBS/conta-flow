@@ -2,13 +2,15 @@ import { BotaoGenerico } from "@/shared/components/ui";
 import { FiAlertTriangle } from "react-icons/fi";
 import { FiX } from "react-icons/fi";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 interface ModalExclusaoProps {
     fecharModal: () => void;
+    removeUsuario: () => Promise<void>;
 }
 
-export default function ModalExclusao( { fecharModal }: ModalExclusaoProps) {
+export default function ModalExclusao( { fecharModal, removeUsuario }: ModalExclusaoProps) {
     const [tempo, setTempo] = useState(30);
-
+    const rota = useRouter();
     useEffect(() => {
         if(tempo <= 0) return;
 
@@ -19,7 +21,19 @@ export default function ModalExclusao( { fecharModal }: ModalExclusaoProps) {
     }, [tempo]);
 
     const desativado = tempo > 0;
-
+    
+    const tratarExclusao = async () => {
+        if(!desativado && removeUsuario){
+            try{
+                await removeUsuario();
+                fecharModal();
+                rota.push("/login");
+            }
+            catch (error) {
+                console.error("Erro ao remover conta:", error);
+            }
+        }
+    }
     return(
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-800/45 
         backdrop-blur-[2px] p-2" onClick={fecharModal}>
@@ -49,7 +63,7 @@ export default function ModalExclusao( { fecharModal }: ModalExclusaoProps) {
                 'opacity-50 cursor-not-allowed pointer-events-none ' : 'bg-[#BA1A1A] hover:bg-[#BA1A1A]/80 active:scale-95'} 
                  text-white p-2 rounded-lg  w-full`}
                  disabled={desativado}
-                 />
+                 onClick={tratarExclusao}/>
             
                 <BotaoGenerico texto="Cancelar" className="bg-[#FFDAD6]/20 border border-[#C1C6D7]
                 text-[#5E5E5E] p-2 rounded-lg hover:bg-[#E5E5E5]/80 active:scale-95 w-full" 
