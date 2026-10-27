@@ -2,54 +2,14 @@
 import { EditarPerfil, HeaderConfiguracoes, SecaoConfiguracoes, StatusConta, ZonaPerigo } from "./components";
 import FooterGenerico from "../../../shared/components/layout/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
-import { editarNomeService } from "../services/configuracao/editarNome.services";
-import { editarEmailService } from "../services/configuracao/editarEmail.services";
-import { desativarUsuario } from "../services/configuracao/desativarUsuario.services";
-import { reativarUsuario } from "../services/configuracao/reativarUsuario.services";
-import { usePainelDados } from "../hooks/usePainelDados";
+import { useEditarPerfil } from "../hooks/useEditarPerfil";
+import { usePainelDados } from "../hooks/usePainelDados"
+import { useAcoesConta } from "../hooks/useAcoesConta";
 export default function ConfiguracaoPage() {
 
     const dadosIniciais = usePainelDados();
 
-
-   const salvarNoBanco = async (dadosAtualizados: {id: string, nome: string, novoEmail:string },
-    campoAlterado: "nome" | "novoEmail" ) => {
-        try{
-            if(campoAlterado === "nome" ){
-                const responseNome = await editarNomeService({id:dadosAtualizados.id, nome: dadosAtualizados.nome});
-                console.log("Dados do nome atualizados salvos no banco:", responseNome);
-                dadosIniciais.setNome(dadosAtualizados.nome);
-            
-            }else if(campoAlterado === "novoEmail"){
-                const responseEmail = await editarEmailService({id:dadosAtualizados.id, novoEmail: dadosAtualizados.novoEmail});
-                console.log("Dados do email atualizados salvos no banco:", responseEmail);    
-                dadosIniciais.setNovoEmail(dadosAtualizados.novoEmail);
-            }
-          
-        }
-        catch (error) {
-            console.error("Erro ao salvar dados no banco:", error);
-        }
-   }
-
-    const handleDesativarConta = async () => {
-        try{
-            const response = await desativarUsuario();
-            console.log("Conta desativada com sucesso:", response);
-        } catch (error) {
-            console.error("Erro ao desativar conta:", error);
-        }
-    }
-
-    const handleReativarConta = async () => {
-        try{
-            const response = await reativarUsuario();
-            console.log("Conta reativada com sucesso:", response);
-        } catch (error) {
-            console.error("Erro ao reativar conta:", error);
-        }
-    }
-
+    const editarPerfil = useEditarPerfil();
     return (
         <div >
             <HeaderConfiguracoes />
@@ -60,7 +20,7 @@ export default function ConfiguracaoPage() {
                 texto="Gerencie suas informações pessoais e preferências de conta."/>
                 {dadosIniciais.id ? (
                     <EditarPerfil 
-                    id={dadosIniciais.id} nome={dadosIniciais.nome} novoEmail={dadosIniciais.novoEmail} salvarNoBanco={salvarNoBanco} />
+                    id={dadosIniciais.id} nome={dadosIniciais.nome} novoEmail={dadosIniciais.novoEmail} salvarNoBanco={editarPerfil.salvarNoBanco} />
                 ) : (
                     <p>Carregando informações do perfil...</p>
                 )}
