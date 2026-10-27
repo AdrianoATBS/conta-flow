@@ -3,22 +3,17 @@ import { FiAlertTriangle } from "react-icons/fi";
 import { FiX } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useContagemRegressiva } from "@/features/painel/hooks/useContagemRegressiva";
 interface ModalExclusaoProps {
     fecharModal: () => void;
     removeUsuario: () => Promise<void>;
 }
 
 export default function ModalExclusao( { fecharModal, removeUsuario }: ModalExclusaoProps) {
-    const [tempo, setTempo] = useState(30);
+    
     const rota = useRouter();
-    useEffect(() => {
-        if(tempo <= 0) return;
+    const tempo = useContagemRegressiva();
 
-        const temporizador = setInterval(() => {
-            setTempo((prevTempoAnterior) => prevTempoAnterior - 1);
-        }, 1000);
-        return () => clearInterval(temporizador);
-    }, [tempo]);
 
     const desativado = tempo > 0;
     
