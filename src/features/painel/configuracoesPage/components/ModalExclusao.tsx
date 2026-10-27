@@ -1,8 +1,6 @@
 import { BotaoGenerico } from "@/shared/components/ui";
 import { FiAlertTriangle } from "react-icons/fi";
 import { FiX } from "react-icons/fi";
-
-import { useContagemRegressiva } from "@/features/painel/hooks/useContagemRegressiva";
 import { useExclusaoUsuario, ExclusaoUsuarioProps } from "@/features/painel/hooks/useExclusaoUsuario";
 
 export default function ModalExclusao({ fecharModal, removeUsuario }: ExclusaoUsuarioProps ) {
