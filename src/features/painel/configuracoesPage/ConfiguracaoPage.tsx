@@ -10,6 +10,7 @@ export default function ConfiguracaoPage() {
     const dadosIniciais = usePainelDados();
 
     const editarPerfil = useEditarPerfil();
+    const acoesConta = useAcoesConta();
     return (
         <div >
             <HeaderConfiguracoes />
@@ -22,10 +23,10 @@ export default function ConfiguracaoPage() {
                     <EditarPerfil 
                     id={dadosIniciais.id} nome={dadosIniciais.nome} novoEmail={dadosIniciais.novoEmail} salvarNoBanco={editarPerfil.salvarNoBanco} />
                 ) : (
-                    <p>Carregando informações do perfil...</p>
-                )}
+                            <p>Carregando informações do perfil...</p>
+                        )}
                 <StatusConta/>
-                <ZonaPerigo  desativarConta={handleDesativarConta} reativarConta={handleReativarConta}  />
+                <ZonaPerigo  desativarConta={acoesConta.handleDesativarConta} reativarConta={acoesConta.handleReativarConta}  />
             </div>
             <FooterGenerico
             paragrafo="ContaFlow. Todos os direitos reservados."
