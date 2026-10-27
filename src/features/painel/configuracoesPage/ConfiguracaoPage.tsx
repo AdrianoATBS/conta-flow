@@ -2,32 +2,14 @@
 import { EditarPerfil, HeaderConfiguracoes, SecaoConfiguracoes, StatusConta, ZonaPerigo } from "./components";
 import FooterGenerico from "../../../shared/components/layout/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
-import { useState, useEffect } from "react";
 import { editarNomeService } from "../services/configuracao/editarNome.services";
-import { painelService } from "../services/painel/painel.services";
 import { editarEmailService } from "../services/configuracao/editarEmail.services";
 import { desativarUsuario } from "../services/configuracao/desativarUsuario.services";
 import { reativarUsuario } from "../services/configuracao/reativarUsuario.services";
+import { usePainelDados } from "../hooks/usePainelDados";
 export default function ConfiguracaoPage() {
-    const [nome, setNome] = useState<string>("");
-    const [novoEmail, setNovoEmail] = useState<string>("");
-    const [id, setId] = useState<string>("");
 
-    useEffect(() => {
-        const fetchConfiguracoes = async () => {
-            try{
-                const response = await painelService();
-                setId(response.id);
-                setNovoEmail(response.email);
-                setNome(response.nome);
-
-            }catch (error) {
-                console.error("Erro ao buscar dados do painel:", error);
-            }
-        }
-        fetchConfiguracoes();
-    }, []);  
-
+    const dadosIniciais = usePainelDados();
 
 
    const salvarNoBanco = async (dadosAtualizados: {id: string, nome: string, novoEmail:string },
@@ -36,12 +18,12 @@ export default function ConfiguracaoPage() {
             if(campoAlterado === "nome" ){
                 const responseNome = await editarNomeService({id:dadosAtualizados.id, nome: dadosAtualizados.nome});
                 console.log("Dados do nome atualizados salvos no banco:", responseNome);
-                setNome(dadosAtualizados.nome);
+                dadosIniciais.setNome(dadosAtualizados.nome);
             
             }else if(campoAlterado === "novoEmail"){
                 const responseEmail = await editarEmailService({id:dadosAtualizados.id, novoEmail: dadosAtualizados.novoEmail});
                 console.log("Dados do email atualizados salvos no banco:", responseEmail);    
-                setNovoEmail(dadosAtualizados.novoEmail);
+                dadosIniciais.setNovoEmail(dadosAtualizados.novoEmail);
             }
           
         }
@@ -76,9 +58,9 @@ export default function ConfiguracaoPage() {
                 <SecaoConfiguracoes />
                 <TituloGenerico titulo="Configurações do Perfil" 
                 texto="Gerencie suas informações pessoais e preferências de conta."/>
-                {id ? (
+                {dadosIniciais.id ? (
                     <EditarPerfil 
-                    id={id} nome={nome} novoEmail={novoEmail} salvarNoBanco={salvarNoBanco} />
+                    id={dadosIniciais.id} nome={dadosIniciais.nome} novoEmail={dadosIniciais.novoEmail} salvarNoBanco={salvarNoBanco} />
                 ) : (
                     <p>Carregando informações do perfil...</p>
                 )}
