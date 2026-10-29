@@ -15,22 +15,7 @@ export default function ZonaPerigo({desativarConta, reativarConta}: ZonaPerigoPr
     const handleAbrirModal = () => {
         setAbrirModal(true);
     }
-    const handleDesativarConta = () => {
-        if(desativarConta){
-            desativarConta();
-        }
-        else{
-            console.error("Função desativarConta não fornecida.");
-        }
-    }
-    const handleReativarConta = () => {
-        if(reativarConta){
-            reativarConta();
-        }
-        else{
-            console.error("Função reativarConta não fornecida.");
-        }
-    }
+   
     const handleRemoverUsuario =  async () => {
         try{
             const response = await removerUsuario();
@@ -60,7 +45,7 @@ export default function ZonaPerigo({desativarConta, reativarConta}: ZonaPerigoPr
                     <p className="text-sm">Sua conta ficará oculta até que você faça login novamente.</p>
                     <BotaoGenerico texto="Desativar Conta" className="w-full mt-2 text-[#BA1A1A] bg-white 
                     border border-[#BA1A1A] p-1 rounded-xl hover:bg-[#BA1A1A]/10 active:scale-95 "
-                    onClick={() => handleDesativarConta()}/>
+                    onClick={desativarConta}/>
                 </div>
                 
                 <div className="flex flex-col gap-2 mt-4 mb-3 p-4
@@ -70,7 +55,7 @@ export default function ZonaPerigo({desativarConta, reativarConta}: ZonaPerigoPr
                     <BotaoGenerico texto="Reativar Conta" 
                     className="w-full mt-2 text-[#0058C3] bg-white border border-[#0058C3]
                      rounded-xl p-1 hover:bg-[#0058C3]/10 active:scale-95" 
-                     onClick={() => {handleReativarConta();}}
+                     onClick={reativarConta}
                     />
                 </div>
 
