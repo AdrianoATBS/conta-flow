@@ -1,9 +1,6 @@
+import  { informacoesStatus } from "@/features/painel/const/informacoesStatus";
 export default function SecaoStatus() {
-    const informacoesStatus  =[
-        {nome: "ACESSOS ESTE MÊS", valor: "142"},
-        {nome: "PROJETO ATIVOS", valor: "08"},
-        {nome: "TEMPO DE USO", valor: "24h 15min"},
-    ]
+
 
     return(
         <section className="w-full flex flex-col gap-4 mb-10">
