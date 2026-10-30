@@ -1,7 +1,7 @@
 import { BotaoGenerico } from "@/shared/components/ui";
 import { FiAlertTriangle } from "react-icons/fi";
 import { FiX } from "react-icons/fi";
-import { useExclusaoUsuario, ExclusaoUsuarioProps } from "@/features/painel/hooks/useExclusaoUsuario";
+import { useExclusaoUsuario, ExclusaoUsuarioProps } from "@/features/painel/hooks/hooksConfiguracoes/useExclusaoUsuario";
 
 export default function ModalExclusao({ fecharModal, removeUsuario }: ExclusaoUsuarioProps ) {
     

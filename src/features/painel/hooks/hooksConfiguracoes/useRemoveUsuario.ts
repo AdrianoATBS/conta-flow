@@ -1,4 +1,4 @@
-import { removerUsuario } from "../services/configuracao/removerUsuario.services";
+import { removerUsuario } from "../../services/configuracao/removerUsuario.services";
 export function useRemoveUsuario() {
         const handleRemoverUsuario =  async () => {
             try{

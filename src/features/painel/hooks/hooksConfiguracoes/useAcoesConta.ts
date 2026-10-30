@@ -1,5 +1,5 @@
-import { desativarUsuario } from "../services/configuracao/desativarUsuario.services";
-import { reativarUsuario } from "../services/configuracao/reativarUsuario.services";
+import { desativarUsuario } from "../../services/configuracao/desativarUsuario.services";
+import { reativarUsuario } from "../../services/configuracao/reativarUsuario.services";
 export function useAcoesConta() {
      const handleDesativarConta = async () => {
             try{

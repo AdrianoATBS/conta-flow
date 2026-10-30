@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { painelService } from "../services/painel/painel.services";
+import { painelService } from "../../services/painel/painel.services";
 export function usePainelDados() {
         const [nome, setNome] = useState<string>("");
         const [novoEmail, setNovoEmail] = useState<string>("");

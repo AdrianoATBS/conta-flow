@@ -3,7 +3,7 @@ import { BotaoGenerico } from "@/shared/components/ui";
 import { GoAlertFill } from "react-icons/go";
 import { useState } from "react";
 import ModalExclusao from "./ModalExclusao";
-import { useRemoveUsuario } from "@/features/painel/hooks/useRemoveUsuario";
+import { useRemoveUsuario } from "@/features/painel/hooks/hooksConfiguracoes/useRemoveUsuario";
 interface ZonaPerigoProps {
     desativarConta: () => Promise<void>;
     reativarConta: () => Promise<void>;

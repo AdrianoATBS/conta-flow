@@ -1,5 +1,5 @@
-import { editarNomeService } from "../services/configuracao/editarNome.services";
-import { editarEmailService } from "../services/configuracao/editarEmail.services";
+import { editarNomeService } from "../../services/configuracao/editarNome.services";
+import { editarEmailService } from "../../services/configuracao/editarEmail.services";
 import { usePainelDados } from "./usePainelDados";
 export function useEditarPerfil(){
     const dadosIniciais = usePainelDados();

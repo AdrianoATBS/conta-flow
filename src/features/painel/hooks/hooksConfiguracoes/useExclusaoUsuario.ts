@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { useContagemRegressiva } from "@/features/painel/hooks/useContagemRegressiva";
+import { useContagemRegressiva } from "@/features/painel/hooks/hooksConfiguracoes/useContagemRegressiva";
 export interface ExclusaoUsuarioProps {
     fecharModal: () => void;
     removeUsuario: () => Promise<void>;

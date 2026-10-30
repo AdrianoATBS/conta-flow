@@ -9,7 +9,6 @@ interface InformacoesPessoaisProps {
     email: string;
     criadoEm: string;
 }
-
 import Link from "next/link";
 export default function InformacoesPessoais({nome, email, criadoEm}: InformacoesPessoaisProps){
 
@@ -21,7 +20,6 @@ export default function InformacoesPessoais({nome, email, criadoEm}: Informacoes
         {nome: "DATA DE CRIAÇÃO", valor: criadoEmFormatado, icon: <FaRegCalendar />},
         {nome: "ÚLTIMO LOGIN", valor: "Hoje às 9:42 (SAO PAULO)", icon: <MdHistory />},
     ]
-    
 
     return(
         <section className="w-full border border-[#E5E2E1] rounded-lg mt-5 mb-10 ">

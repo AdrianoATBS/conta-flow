@@ -2,9 +2,9 @@
 import { EditarPerfil, HeaderConfiguracoes, SecaoConfiguracoes, StatusConta, ZonaPerigo } from "./components";
 import FooterGenerico from "../../../shared/components/layout/FooterGenerico";
 import TituloGenerico from "../components/TituloGenerico";
-import { useEditarPerfil } from "../hooks/useEditarPerfil";
-import { usePainelDados } from "../hooks/usePainelDados"
-import { useAcoesConta } from "../hooks/useAcoesConta";
+import { useEditarPerfil } from "../hooks/hooksConfiguracoes/useEditarPerfil";
+import { usePainelDados } from "../hooks/hooksConfiguracoes/usePainelDados"
+import { useAcoesConta } from "../hooks/hooksConfiguracoes/useAcoesConta";
 export default function ConfiguracaoPage() {
 
     const dadosIniciais = usePainelDados();
