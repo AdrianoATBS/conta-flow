@@ -1,52 +1,22 @@
 "use client"
 import { BotaoGenerico, InputGenerico } from "@/shared/components/ui";
-import { useState } from "react";
 import Link from "next/link";
-import { SubmitEvent } from "react";
-import { loginService } from "../services/login.services";
-import { useRouter } from "next/navigation";
+import { useLogin } from "../hooks/useLogin";
 export default function FormularioLogin(){
 
-    const [email, setEmail] = useState<string>("");
-    const [senha, setSenha] = useState<string>("");
-    const [token, setToken] = useState<string | null>(null);
-    const router = useRouter();
-
-    const handleSubmit = async  (e: SubmitEvent<HTMLFormElement>) =>{
-        e.preventDefault();
-        if(!email || !senha){
-            alert("Por favor, preencha todos os campos.");
-            return; 
-        }
-        if(senha.length < 6){
-            alert("A senha deve ter no mínimo 6 caracteres.");
-            return;
-        }
-        try{
-            const response = await loginService({ email, senha, });
-            setToken(response.accessToken);
-            localStorage.setItem("token", response.accessToken);
-            console.log("Token armazenado no localStorage:", response.accessToken);
-
-            router.push("/");
-        } catch (error) {
-            console.error("Erro ao fazer login:", error);
-        }
-        setEmail("");
-        setSenha("");
-    }
+    const login = useLogin();
    
     
  
     return(
         <section className="w-full max-w-md flex flex-col items-center gap-4 mx-auto">
-            <form onSubmit={handleSubmit} className="w-full  border-borda border p-6 sm:p-8 rounded-2xl 
+            <form onSubmit={login.handleSubmit} className="w-full  border-borda border p-6 sm:p-8 rounded-2xl 
             flex flex-col gap-4 justify-center " >
 
                 <InputGenerico placeholder="nome@empresa.com" label="Email" type="email" tamanho="sm" cores="secundaria"
                 className="rounded-lg border-borda outline-none"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)} />
+                value={login.email}
+                onChange={(e) => login.setEmail(e.target.value)} />
 
                 <div className="flex flex-col">
                     <div className="flex flex-wrap justify-between items-center gap-4 mb-1">
@@ -57,8 +27,8 @@ export default function FormularioLogin(){
                     
                     <InputGenerico placeholder="••••••••"  type="password" tamanho="sm" cores="secundaria"
                     className="rounded-lg border-borda outline-none " 
-                    value={senha} 
-                    onChange={(e) => setSenha(e.target.value)} />
+                    value={login.senha} 
+                    onChange={(e) => login.setSenha(e.target.value)} />
                 </div>
                 
                 <div className="flex flex-col ">
