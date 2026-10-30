@@ -5,8 +5,8 @@ import { useState } from "react";
 import ModalExclusao from "./ModalExclusao";
 import { useRemoveUsuario } from "@/features/painel/hooks/useRemoveUsuario";
 interface ZonaPerigoProps {
-    desativarConta?: () => Promise<void>;
-    reativarConta?: () => Promise<void>;
+    desativarConta: () => Promise<void>;
+    reativarConta: () => Promise<void>;
 }
 
 export default function ZonaPerigo({desativarConta, reativarConta}: ZonaPerigoProps) {
