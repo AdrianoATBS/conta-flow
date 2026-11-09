@@ -42,15 +42,16 @@ export default function InformacoesPessoais({nome, email, criadoEm}: Informacoes
                     </div>
                ))}
             </div>
-            <div className="w-full mt-4  flex flex-col px-4 pb-5 ">
-                <div className="w-fit flex items-center justify-center">
+            <div className="w-full mt-4 flex flex-col px-4 pb-5
+            md:flex-row md:items-center md:justify-end md:gap-2">
+                <div className="w-fit flex items-center justify-center ">
                     <Link href="/configuracoes" className="flex items-center gap-2 border
                      border-[#E5E2E1] rounded-lg p-4 active:scale-95 hover:bg-white/30">
                         <MdOutlineSettings className="text-primaria text-lg" />
                         <span className="text-primaria"> Configurações</span>
                     </Link>
                 </div>
-                <div className="w-fit mt-4 ">
+                <div className="w-fit mt-4 md:mt-0 ">
                     <Link href="#" className="flex items-center gap-2 p-4 bg-primaria rounded-lg
                      active:bg-primaria/50 active:scale-95">
                         <FaPencilAlt className="text-white text-lg" />
