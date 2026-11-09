@@ -10,7 +10,7 @@ export default function Header({ esquerda, centro, direita }: HeaderProps) {
             <div className="shrink-0">
                 {esquerda}
             </div>
-            <div className="grow text-center">
+            <div className=" text-center">
                 {centro}
             </div>
             <div className="shrink-0">
