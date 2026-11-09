@@ -12,27 +12,34 @@ export default function ConfiguracaoPage() {
     const editarPerfil = useEditarPerfil();
     const acoesConta = useAcoesConta();
     return (
-        <div >
+        <div  className="min-h-screen flex flex-col">
             <HeaderConfiguracoes />
-            <div className="w-full max-w-2xl mx-auto pt-6 px-4
-            flex flex-col gap-2 h-full">
-                <SecaoConfiguracoes />
-                <TituloGenerico titulo="Configurações do Perfil" 
-                texto="Gerencie suas informações pessoais e preferências de conta."/>
-                <div className="md:flex ">
+            <div className="w-full max-w-6xl mx-auto px-4 pt-6
+        flex-1 lg:grid lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-8">
+               
+                    <aside>
+                        <SecaoConfiguracoes />
+                    </aside>
+                    <div className="flex flex-col gap-4">
 
-                    {dadosIniciais.id ? (
-                        <EditarPerfil 
-                        id={dadosIniciais.id} nome={dadosIniciais.nome} novoEmail={dadosIniciais.novoEmail} salvarNoBanco={editarPerfil.salvarNoBanco} />
-                    ) : (
-                        <p>Carregando informações do perfil...</p>
-                    )}
-                    <div className="md:ml-4 mt-4 md:mt-5 ">
+                    <TituloGenerico titulo="Configurações do Perfil" 
+                    texto="Gerencie suas informações pessoais e preferências de conta."/>
+                    <div className="flex flex-col gap-4 md:flex-row ">
 
-                        <StatusConta/>
+                        {dadosIniciais.id ? (
+                            <EditarPerfil 
+                            id={dadosIniciais.id} nome={dadosIniciais.nome} novoEmail={dadosIniciais.novoEmail} salvarNoBanco={editarPerfil.salvarNoBanco} />
+                        ) : (
+                            <p>Carregando informações do perfil...</p>
+                        )}
+                        <div className="md:w-1/3 ">
+
+                            <StatusConta/>
+                        </div>
                     </div>
-                </div>
-                <ZonaPerigo  desativarConta={acoesConta.handleDesativarConta} reativarConta={acoesConta.handleReativarConta}  />
+                        <ZonaPerigo  desativarConta={acoesConta.handleDesativarConta} reativarConta={acoesConta.handleReativarConta}  />
+                   
+                    </div>
             </div>
             <FooterGenerico
             paragrafo="ContaFlow. Todos os direitos reservados."
