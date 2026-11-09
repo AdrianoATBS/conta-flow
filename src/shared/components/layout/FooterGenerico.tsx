@@ -8,7 +8,7 @@ export default function FooterGenerico({ paragrafo, links }: FooterGenericoProps
     const anoAtual = new Date().getFullYear();
     return(
         <footer className="w-full flex flex-col mt-auto p-4 border-t border-[#E5E5E5] 
-        bg-white pb-10 ">
+        bg-white pb-10  md:flex-row md:justify-between md:items-center md:px-6">
             <p className="text-xs font-bold text-center mb-1">© {anoAtual} {paragrafo}</p>
             <nav>
                 <ul className="flex gap-4  ">
