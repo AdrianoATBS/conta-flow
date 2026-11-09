@@ -38,7 +38,7 @@ export default function EditarPerfil({ id, nome, novoEmail, salvarNoBanco }: Inf
     
 
     return(
-        <section className="w-full mb-5 ">
+        <section className="w-full md:max-w-md mb-5 ">
             <header className="flex p-2 gap-2"> 
                 <FaUserCircle className="text-[#5E5E5E] text-6xl" />
                 <div className="flex flex-col ">

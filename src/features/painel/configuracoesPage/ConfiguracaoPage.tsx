@@ -19,13 +19,19 @@ export default function ConfiguracaoPage() {
                 <SecaoConfiguracoes />
                 <TituloGenerico titulo="Configurações do Perfil" 
                 texto="Gerencie suas informações pessoais e preferências de conta."/>
-                {dadosIniciais.id ? (
-                    <EditarPerfil 
-                    id={dadosIniciais.id} nome={dadosIniciais.nome} novoEmail={dadosIniciais.novoEmail} salvarNoBanco={editarPerfil.salvarNoBanco} />
-                ) : (
-                            <p>Carregando informações do perfil...</p>
-                        )}
-                <StatusConta/>
+                <div className="md:flex ">
+
+                    {dadosIniciais.id ? (
+                        <EditarPerfil 
+                        id={dadosIniciais.id} nome={dadosIniciais.nome} novoEmail={dadosIniciais.novoEmail} salvarNoBanco={editarPerfil.salvarNoBanco} />
+                    ) : (
+                        <p>Carregando informações do perfil...</p>
+                    )}
+                    <div className="md:ml-4 mt-4 md:mt-5 ">
+
+                        <StatusConta/>
+                    </div>
+                </div>
                 <ZonaPerigo  desativarConta={acoesConta.handleDesativarConta} reativarConta={acoesConta.handleReativarConta}  />
             </div>
             <FooterGenerico
