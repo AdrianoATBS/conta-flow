@@ -11,17 +11,25 @@ export default function PainelPage(){
     return(
         <div className="w-full min-h-screen flex flex-col ">
             <HeaderPainel />
-            <div className="w-full max-w-2xl mx-auto pt-6 px-4
-            flex flex-col gap-2 h-full">
+            <main className="w-full max-w-6xl mx-auto px-4 pt-6">
             <TituloGenerico 
                 titulo="Minha Conta"
                 texto="Gerencie as informações do seu perfil e
                 preferências de acesso." />
-            <InformacoesPessoais nome={informacoesUsuario.nome} email={informacoesUsuario.email} criadoEm={informacoesUsuario.criadoEm} />
-            <SecaoStatus />
-            <SecaoSegura />
-            <ZonaPerigo />
-            </div>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div className="lg:col-span-2 flex flex-col gap-2">
+
+                        <InformacoesPessoais nome={informacoesUsuario.nome} email={informacoesUsuario.email} criadoEm={informacoesUsuario.criadoEm} />
+                        <SecaoStatus />
+                    </div>
+
+                    <div className="flex flex-col lg:mt-5">
+                        <SecaoSegura />
+                        <ZonaPerigo />
+                    </div>
+                </div>
+            </main>
+            
             <FooterGenerico 
                 paragrafo="ContaFlow. Todos os direitos reservados."
                 links={["Termos de uso", "Política de privacidade", "Suporte"]} />
