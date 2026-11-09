@@ -142,7 +142,7 @@ src/
 - `lib`: configurações e recursos de integração, como a comunicação com a API.
 - `shared`: componentes, hooks, tipos e utilitários compartilhados.
 
-## ⚙️ Como executar o projeto
+## Como executar o projeto
 
 ### Pré-requisitos
 
@@ -192,7 +192,7 @@ http://localhost:3000
 
 **Importante:** a API também precisa estar em execução para que as funcionalidades de autenticação e gerenciamento de usuários funcionem corretamente.
 
-## 🔗 API utilizada
+## API utilizada
 
 Um dos principais diferenciais do ContaFlow é utilizar uma API REST desenvolvida por mim, em um projeto anterior de backend.
 
