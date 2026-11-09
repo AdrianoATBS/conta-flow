@@ -3,7 +3,7 @@ export default function SecaoStatus() {
 
 
     return(
-        <section className="w-full flex flex-col gap-4 mb-10">
+        <section className="w-full flex flex-col gap-4 mb-10 md:flex-row">
                 {informacoesStatus.map((info) => (
                     <div key={info.nome} className="w-full flex flex-col gap-2 
                     border border-[#E5E2E1] px-4 py-4 rounded-lg">
