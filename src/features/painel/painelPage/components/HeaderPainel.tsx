@@ -1,7 +1,8 @@
 import {Header, Logo, Icons, BotaoLogout} from "@/shared/components/layout/HeaderBase";
-
+import { useRemoveToken } from "../../hooks/hooksPainel/useRemoveToken";
 export default function HeaderPainel() {
     const ativo = "painel";
+    const  removeToken  = useRemoveToken();
     return(
         <header>
             <Header 
@@ -14,7 +15,7 @@ export default function HeaderPainel() {
                 }
                 direita={
                 <div className="flex items-center gap-1">
-                    <BotaoLogout/> 
+                    <BotaoLogout removeToken={removeToken.removeToken}/> 
                     <Icons />
                 </div>
                 }

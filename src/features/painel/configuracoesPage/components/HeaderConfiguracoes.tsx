@@ -1,9 +1,8 @@
-import { Header, Logo, Icons
-
-} from "@/shared/components/layout/HeaderBase";
-
+import { Header, Logo, Icons} from "@/shared/components/layout/HeaderBase";
+import { useRemoveToken } from "../../hooks/hooksPainel/useRemoveToken";
 export default function HeaderConfiguracoes() {
     const ativo = "configuracoes";
+    const removerToken  = useRemoveToken();
     return(
         <Header
             esquerda={<Logo EhHome={false} /> }
@@ -16,7 +15,8 @@ export default function HeaderConfiguracoes() {
             }
             direita={
                 <div className="flex items-center gap-2">
-                    <p className=" hidden md:block text-sm semi-bold text-[#1A1A1A] ">Logout</p>
+                    <button className=" hidden md:block text-sm semi-bold text-[#1A1A1A] "
+                     onClick={removerToken.removeToken}>Sair</button>
                     <Icons />
                 </div>
 

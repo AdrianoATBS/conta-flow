@@ -4,9 +4,11 @@ import TituloGenerico from "../components/TituloGenerico";
 import { HeaderPainel, InformacoesPessoais, 
     SecaoSegura, SecaoStatus, ZonaPerigo } from "./components";
 import { UsePerfilUsuario } from "../hooks/hooksPainel/usePerfilUsuario";
+import { useRemoveToken } from "../hooks/hooksPainel/useRemoveToken";
 export default function PainelPage(){
     
     const informacoesUsuario = UsePerfilUsuario();
+    const removerToken = useRemoveToken();
 
     return(
         <div className="w-full min-h-screen flex flex-col ">
@@ -25,7 +27,7 @@ export default function PainelPage(){
 
                     <div className="flex flex-col lg:mt-5">
                         <SecaoSegura />
-                        <ZonaPerigo />
+                        <ZonaPerigo removeToken={removerToken.removeToken} />
                     </div>
                 </div>
             </main>
