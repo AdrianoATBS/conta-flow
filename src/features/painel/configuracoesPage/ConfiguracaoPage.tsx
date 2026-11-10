@@ -11,6 +11,8 @@ export default function ConfiguracaoPage() {
 
     const editarPerfil = useEditarPerfil();
     const acoesConta = useAcoesConta();
+
+
     return (
         <div  className="min-h-screen flex flex-col">
             <HeaderConfiguracoes />
@@ -34,7 +36,7 @@ export default function ConfiguracaoPage() {
                         )}
                         <div className="md:w-1/3 ">
 
-                            <StatusConta/>
+                            <StatusConta status={dadosIniciais.ativo} />
                         </div>
                     </div>
                         <ZonaPerigo  desativarConta={acoesConta.handleDesativarConta} reativarConta={acoesConta.handleReativarConta}  />
