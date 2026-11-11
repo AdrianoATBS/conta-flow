@@ -1,8 +1,17 @@
+"use client";
 import PainelPage from "@/features/painel/painelPage/PainelPage";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 export default function Home() {
-  return (
-    redirect("/login"),
+    const rota = useRouter();
+    useEffect(() => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        rota.replace("/login");
+      }
+    }, [rota]);
+    return (
+    
    <main className="w-full h-screen">
         <PainelPage />
    </main>
