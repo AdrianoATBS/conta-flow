@@ -32,7 +32,7 @@ Mais do que desenvolver uma interface, o ContaFlow representa uma oportunidade d
 - [x] Logout da aplicação
 
 
-```markdown
+
 ## Acesso à aplicação
 
 Para iniciar a navegação, acesse a rota `/login`, onde é possível entrar com uma conta existente ou seguir para o cadastro de um novo usuário.
