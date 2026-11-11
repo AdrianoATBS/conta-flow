@@ -1,6 +1,4 @@
-"use client";
 import PainelPage from "@/features/painel/painelPage/PainelPage";
-
 
 export default function Home() {
     return (
