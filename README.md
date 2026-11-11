@@ -31,6 +31,21 @@ Mais do que desenvolver uma interface, o ContaFlow representa uma oportunidade d
 - [x] Interface para gerenciamento das configurações da conta.
 - [x] Logout da aplicação
 
+
+```markdown
+## Acesso à aplicação
+
+Para iniciar a navegação, acesse a rota `/login`, onde é possível entrar com uma conta existente ou seguir para o cadastro de um novo usuário.
+
+Após a autenticação, o usuário é direcionado ao painel principal da aplicação, disponível na rota `/`.
+
+| Rota | Descrição |
+|---|---|
+| `/login` | Página de autenticação. |
+| `/cadastro` | Página de cadastro de novos usuários. |
+| `/` | Painel principal do usuário autenticado. |
+
+
 ## Stack Tecnológica
 
 As tecnologias utilizadas no desenvolvimento foram:
@@ -187,8 +202,10 @@ npm run dev
 
 ### 6. Acesse no navegador
 
+Após iniciar a aplicação, acesse a rota de login:
+
 ```text
-http://localhost:3000
+http://localhost:3000/login
 ```
 
 **Importante:** a API também precisa estar em execução para que as funcionalidades de autenticação e gerenciamento de usuários funcionem corretamente.
