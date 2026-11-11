@@ -29,6 +29,7 @@ Mais do que desenvolver uma interface, o ContaFlow representa uma oportunidade d
 - [x] Exclusão da conta.
 - [x] Visualização das informações do perfil.
 - [x] Interface para gerenciamento das configurações da conta.
+- [x] Logout da aplicação
 
 ## Stack Tecnológica
 
