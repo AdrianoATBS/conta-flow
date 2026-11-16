@@ -1,4 +1,4 @@
-import { FooterAutenticacao, FormularioLogin, HeaderAutenticacao } from "../components";
+import { FormularioLogin, HeaderAutenticacao } from "../components";
 
 export default function LoginPage(){
     return(
@@ -10,7 +10,6 @@ export default function LoginPage(){
                 />
                 <FormularioLogin />
             </div>
-            <FooterAutenticacao/>
         </div>
     )
 }

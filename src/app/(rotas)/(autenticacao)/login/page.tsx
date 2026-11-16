@@ -1,4 +1,3 @@
-"use client";
 import LoginPage from "@/features/autenticacao/login/LoginPage";
 export default function Login()
 {

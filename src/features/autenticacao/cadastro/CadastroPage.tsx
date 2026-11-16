@@ -1,4 +1,4 @@
-import { FooterAutenticacao, FormularioCadastro, HeaderAutenticacao } from "../components";
+import { FormularioCadastro, HeaderAutenticacao } from "../components";
 
 export default function CadastroPage() {
     return(
@@ -10,7 +10,7 @@ export default function CadastroPage() {
                 />
                 <FormularioCadastro/>
             </div>
-            <FooterAutenticacao/>
+            
         </div>
     )
 }

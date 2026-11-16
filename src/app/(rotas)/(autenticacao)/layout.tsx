@@ -1,5 +1,5 @@
 import "@/app/globals.css";
-
+import FooterAutenticacao from "@/features/autenticacao/components/FooterAutenticacao";
 export default function AutenticacaoLayout({ children }:
      {children: React.ReactNode }) {
   return (
@@ -9,6 +9,7 @@ export default function AutenticacaoLayout({ children }:
         <div className=" w-full space-y-8 ">
             {children}
         </div>
+        <FooterAutenticacao/>
     </main>
   );
 }
