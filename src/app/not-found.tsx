@@ -1,7 +1,8 @@
-    import Image from "next/image";
-    import{ Header, Logo, BotaoSuporte}  from "@/shared/components/layout/HeaderBase";
-    import { BotaoGenerico } from "@/shared/components/ui";
-    import Link from "next/link";
+import Image from "next/image";
+import{ Header, Logo, BotaoSuporte}  from "@/shared/components/layout/HeaderBase";
+import { BotaoGenerico } from "@/shared/components/ui";
+import Link from "next/link";
+
 import FooterGenerico from "@/shared/components/layout/FooterGenerico";
     export default function NotFound() {
         return(
@@ -11,7 +12,7 @@ import FooterGenerico from "@/shared/components/layout/FooterGenerico";
                 centro={null}
                 direita={<BotaoSuporte/>}
                 />
-                <section className="max-w-xl flex flex-col items-center justify-center gap-4 mt-4 p-2">
+                <section className="w-full max-w-xl mx-auto flex flex-col items-center justify-center gap-4 mt-4 p-2">
                     <div className="relative w-full h-56 md:h-64 lg:h-96">
                         <Image src="/not-found.png" alt="404" 
                         fill
