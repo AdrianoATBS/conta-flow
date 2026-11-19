@@ -27,13 +27,17 @@ import FooterGenerico from "@/shared/components/layout/FooterGenerico";
                         Não se preocupe, vamos te levar de volta.
                     </p>
                     <div className="w-full flex flex-col gap-2 mt-2 mb-4">
-                        <Link href="/"  >
-                            <BotaoGenerico texto="← Voltar ao início" className="bg-botao-primario
-                            hover:bg-botao-primario/70 active:scale-95 w-full" />
+                        <Link href="/"className="bg-botao-primario
+                            hover:bg-botao-primario/70 active:scale-95 w-full text-center text-white 
+                            p-2 rounded-lg"   >
+                            
+                            ← Voltar ao início
                         </Link>
-                        <Link href="#" >
-                            <BotaoGenerico texto="Página anterior" className="bg-transparent text-texto
-                            border-2 border-terciaria active:scale-95 w-full" />
+                        <Link href="#" className="bg-transparente border border-white hover:bg-white/10
+                            active:scale-95 w-full text-center text-texto-atenunado 
+                            p-2 rounded-lg" >
+                            
+                            Página anterior
                         </Link>
                     </div>
                 </section>
